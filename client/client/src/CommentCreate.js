@@ -4,7 +4,7 @@ import axios from "axios";
 const CommentCreate = ({ postId }) => {
   const [content, setContent] = useState("");
 
-  async function onSubmit(event) {
+  const onSubmit = async (event) => {
     event.preventDefault();
 
     await axios.post(`http://localhost:4001/posts/${postId}/comments`, {
@@ -12,7 +12,7 @@ const CommentCreate = ({ postId }) => {
     });
 
     setContent("");
-  }
+  };
 
   return (
     <div>
