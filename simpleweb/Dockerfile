@@ -1,7 +1,7 @@
 #Specify a base image
 FROM node:alpine
 
-WORKDIR /usr/app
+WORKDIR /var/www/html
 
 #Copy files
 COPY ./ ./
