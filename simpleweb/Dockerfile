@@ -1,5 +1,10 @@
 #Specify a base image
-FROM node:14-alpine
+FROM node:alpine
+
+WORKDIR /usr/app
+
+#Copy files
+COPY ./ ./
 
 #Install some dependencies
 RUN npm install
