@@ -8,7 +8,7 @@ const PostCreate = () => {
     async function onSubmit (event) {
         event.preventDefault();
 
-        await axios.post("https://posts.com/posts", {
+        await axios.post("https://posts.com/posts/create", {
           title,
         });
         
