@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-srv
+  namespace: ingress
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+spec:
+  ingressClassName: nginx   # Ingress-NGINX controller
+  tls:
+  - hosts:
+    - posts.com      # You can use a local hostname (edit /etc/hosts later)
+    secretName: ingress-tls
+  rules:
+    - host: posts.com
+      http:
+        paths:
+        - path: /posts
+          pathType: Prefix
+          backend:
+            service:
+              name: posts-clusterip-srv   # Replace with your actual service name
+              port:
+                number: 4000          # Replace with the port your app uses internally
