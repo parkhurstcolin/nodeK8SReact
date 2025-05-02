@@ -6,6 +6,7 @@ metadata:
   annotations:
     nginx.ingress.kubernetes.io/ssl-redirect: "true"
     nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/use-regex: "true"
 spec:
   ingressClassName: nginx   # Ingress-NGINX controller
   tls:
@@ -16,31 +17,31 @@ spec:
     - host: posts.com
       http:
         paths:
-        - path: /
+        - path: /posts/create
           pathType: Prefix
           backend:
             service:
               name: posts-clusterip-srv   # Replace with your actual service name
               port:
-                number: 4000          # Replace with the port your app uses internally
-          path: /posts
+                number: 4000           # Replace with the port your app uses internally
+        - path: /posts
           pathType: Prefix
           backend:
             service:
-              name: posts-clusterip-srv   # Replace with your actual service name
+              name: query-srv   # Replace with your actual service name
               port:
-                number: 4000          # Replace with the port your app uses internally
-          path: /posts/create
-          pathType: Prefix
+                number: 4002        # Replace with the port your app uses internally
+        - path: /posts/?(.*)/comments
+          pathType: ImplementationSpecific
           backend:
             service:
-              name: posts-clusterip-srv   # Replace with your actual service name
+              name: comments-srv   # Replace with your actual service name
               port:
-                number: 4000          # Replace with the port your app uses internally
-          path: /posts/:id/comments
-          pathType: Prefix
+                number: 4001          # Replace with the port your app uses internally
+        - path: /?(.*)
+          pathType: ImplementationSpecific
           backend:
             service:
-              name: posts-clusterip-srv   # Replace with your actual service name
+              name: client-srv   # Replace with your actual service name
               port:
-                number: 4000          # Replace with the port your app uses internally
+                number: 3000          # Replace with the port your app uses internally
