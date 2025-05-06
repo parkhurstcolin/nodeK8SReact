@@ -1,0 +1,47 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-srv
+  namespace: development
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/use-regex: "true"
+spec:
+  ingressClassName: nginx   # Ingress-NGINX controller
+  tls:
+  - hosts:
+    - devposts.com     # You can use a local hostname (edit /etc/hosts later)
+    secretName: dev-tls-secret
+  rules:
+    - host: devposts.com
+      http:
+        paths:
+        - path: /posts/create
+          pathType: Prefix
+          backend:
+            service:
+              name: posts-clusterip-srv   # Replace with your actual service name
+              port:
+                number: 4000           # Replace with the port your app uses internally
+        - path: /posts
+          pathType: Prefix
+          backend:
+            service:
+              name: query-srv   # Replace with your actual service name
+              port:
+                number: 4002        # Replace with the port your app uses internally
+        - path: /posts/?(.*)/comments
+          pathType: ImplementationSpecific
+          backend:
+            service:
+              name: comments-srv   # Replace with your actual service name
+              port:
+                number: 4001          # Replace with the port your app uses internally
+        - path: /?(.*)
+          pathType: ImplementationSpecific
+          backend:
+            service:
+              name: client-srv   # Replace with your actual service name
+              port:
+                number: 3000          # Replace with the port your app uses internally

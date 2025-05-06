@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: moderation-depl
+  namespace: development
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: moderation
+  template:
+    metadata:
+      labels:
+        app: moderation
+    spec:
+      containers:
+        - name: moderation
+          image: 192.100.40.5:5001/moderation:latest
+          imagePullPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: moderation-srv
+  namespace: development
+spec:
+  selector:
+    app: moderation
+  ports:
+    - name: moderation
+      protocol: TCP
+      port: 4003
+      targetPort: 4003

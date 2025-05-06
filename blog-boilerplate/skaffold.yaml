@@ -1,57 +1,10 @@
 apiVersion: skaffold/v4beta3
 kind: Config
+
 manifests:
   rawYaml:
-    - ./infra/k3s-k8s/*
+    - ./infra/k3s/*
+
 build:
   local:
-    push: false
-  artifacts:
-    - image: 192.100.40.5:5000/client
-      context: client
-      docker:
-        dockerfile: Dockerfile
-      sync:
-        manual:
-          - src: 'src/**/*.js'
-            dest: .
-    - image: 192.100.40.5:5000/comments
-      context: comments
-      docker:
-        dockerfile: Dockerfile
-      sync:
-        manual:
-          - src: '*.js'
-            dest: .
-    - image: 192.100.40.5:5000/event-bus
-      context: event-bus
-      docker:
-        dockerfile: Dockerfile
-      sync:
-        manual:
-          - src: '*.js'
-            dest: .
-    - image: 192.100.40.5:5000/moderation
-      context: moderation
-      docker:
-        dockerfile: Dockerfile
-      sync:
-        manual:
-          - src: '*.js'
-            dest: .
-    - image: 192.100.40.5:5000/posts
-      context: posts
-      docker:
-        dockerfile: Dockerfile
-      sync:
-        manual:
-          - src: '*.js'
-            dest: .
-    - image: 192.100.40.5:5000/query
-      context: query
-      docker:
-        dockerfile: Dockerfile
-      sync:
-        manual:
-          - src: '*.js'
-            dest: .
+    push: false  # No building or pushing

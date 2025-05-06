@@ -1,0 +1,94 @@
+apiVersion: skaffold/v4beta3
+kind: Config
+
+manifests:
+  rawYaml:
+    - ./infra/k8s/*
+
+build:
+  local:
+    push: true
+    useDockerCLI: true
+  tagPolicy:
+    sha256: {}
+  artifacts:
+    - image: 192.100.40.5:5001/comments
+      context: comments
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: '*.js'
+            dest: .
+    - image: 192.100.40.5:5001/moderation
+      context: moderation
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: '*.js'
+            dest: .
+    - image: 192.100.40.5:5001/posts
+      context: posts
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: '*.js'
+            dest: .
+    - image: 192.100.40.5:5001/query
+      context: query
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: '*.js'
+            dest: .
+    - image: 192.100.40.5:5001/event-bus
+      context: event-bus
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: '*.js'
+            dest: .
+    - image: 192.100.40.5:5001/client
+      context: client
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: 'src/**/*.js'
+            dest: .
+
+portForward:
+  - resourceType: service
+    resourceName: client-srv
+    port: 3000
+    localPort: 8080
+    namespace: development
+  - resourceType: service
+    resourceName: posts-clusterip-srv
+    port: 4000
+    localPort: 4000
+    namespace: development
+  - resourceType: service
+    resourceName: query-srv
+    port: 4002
+    localPort: 4002
+    namespace: development
+  - resourceType: service
+    resourceName: comments-srv
+    port: 4001
+    localPort: 4001
+    namespace: development
+  - resourceType: service
+    resourceName: event-bus-srv
+    port: 4005
+    localPort: 4005
+    namespace: development
+  - resourceType: service
+    resourceName: moderation-srv
+    port: 4003
+    localPort: 4003
+    namespace: development

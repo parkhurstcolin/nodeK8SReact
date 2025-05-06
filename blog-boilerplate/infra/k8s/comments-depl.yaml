@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: comments-depl
+  namespace: development
 spec:
   replicas: 1
   selector:
@@ -14,14 +15,14 @@ spec:
     spec:
       containers:
         - name: comments
-          image: 192.100.40.5:5000/comments:latest
-      nodeSelector:
-        kubernetes.io/arch: arm64
+          image: 192.100.40.5:5001/comments:latest
+          imagePullPolicy: Always
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: comments-srv
+  namespace: development
 spec:
   selector:
     app: comments

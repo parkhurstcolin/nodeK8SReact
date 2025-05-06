@@ -4,6 +4,7 @@ const CommentList = ({ comments }) => {
   const renderedComments = comments.map((comment) => {
     let content;
 
+    // eslint-disable-next-line
     switch (comment.status) {
       case "approved":
         content = comment.content;

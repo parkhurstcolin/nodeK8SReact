@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: client-depl
+  namespace: development
 spec:
   replicas: 1
   selector:
@@ -14,14 +15,14 @@ spec:
     spec:
       containers:
         - name: client
-          image: 192.100.40.5:5000/client:latest
-      nodeSelector:
-        kubernetes.io/arch: amd64
+          image: 192.100.40.5:5001/client:latest
+          imagePullPolicy: Always
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: client-srv
+  namespace: development
 spec:
   selector:
     app: client
