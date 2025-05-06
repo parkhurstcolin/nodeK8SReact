@@ -8,3 +8,6 @@ manifests:
 build:
   local:
     push: false  # No building or pushing
+
+## docker buildx build --platform linux/arm64,linux/amd64 -t 192.100.40.5:5000/<image-name> . --push
+## skaffold run -f skaffold.yaml --kube-context prod-cluster -n default       # Reminder to myself to add namespace for production for main cluster

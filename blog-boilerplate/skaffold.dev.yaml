@@ -92,3 +92,5 @@ portForward:
     port: 4003
     localPort: 4003
     namespace: development
+
+## skaffold dev -f skaffold.dev.yaml --tail --kube-context dev-cluster -n development
