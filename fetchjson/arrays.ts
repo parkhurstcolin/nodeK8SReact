@@ -9,7 +9,7 @@ const car = carMakers[0];
 const myCar = carMakers.pop();
 
 // Prevent incomaptible values
-carMakers.push(100);
+//carMakers.push(100);
 
 // Help with 'map'
 carMakers.map((car: string): string => {
