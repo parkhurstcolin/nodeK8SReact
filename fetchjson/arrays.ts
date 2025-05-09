@@ -5,7 +5,7 @@ const carsByMake: string[][] = [['f150'], ['carolla'], ['comaro']];
 
 // Help with inference when extracting values
 
-const car = carMakers[0];
+//const car = carMakers[0];
 const myCar = carMakers.pop();
 
 // Prevent incomaptible values
