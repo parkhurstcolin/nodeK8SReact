@@ -25,5 +25,10 @@ export class CustomMap {
     });
   }
 
-  addCompanyMarker(company: Company): void {}
+  addCompanyMarker(company: Company): void {
+    new google.maps.Marker({
+      map: this.googleMap,
+      position: company.location,
+    });
+  }
 }
