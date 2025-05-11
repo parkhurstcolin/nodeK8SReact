@@ -1,11 +1,11 @@
-5548
-75/mnt/xDrive/UserFiles/Karasu/Github/Udemy/nodeK8SReact/maps/dist/index.html1746889579896634431 0
+5549
+75/mnt/xDrive/UserFiles/Karasu/Github/Udemy/nodeK8SReact/maps/dist/index.html1746972877898239194 0
 85/mnt/xDrive/UserFiles/Karasu/Github/Udemy/nodeK8SReact/maps/dist/maps.a2409cfb.js.map1746889387845435761 0
-64/mnt/xDrive/UserFiles/Karasu/Github/Udemy/nodeK8SReact/maps/dist1746889579924093360 1
-70/mnt/xDrive/UserFiles/Karasu/Github/Udemy/nodeK8SReact/maps/index.html1746888987576982384 0
+64/mnt/xDrive/UserFiles/Karasu/Github/Udemy/nodeK8SReact/maps/dist1746972877898503067 1
+70/mnt/xDrive/UserFiles/Karasu/Github/Udemy/nodeK8SReact/maps/index.html1746972877821351582 0
 77/mnt/xDrive/UserFiles/Karasu/Github/Udemy/nodeK8SReact/maps/package-lock.json1746889573627631571 0
-72/mnt/xDrive/UserFiles/Karasu/Github/Udemy/nodeK8SReact/maps/src/index.ts1746889010041326215 0
-63/mnt/xDrive/UserFiles/Karasu/Github/Udemy/nodeK8SReact/maps/src1746889434589567219 1
+72/mnt/xDrive/UserFiles/Karasu/Github/Udemy/nodeK8SReact/maps/src/index.ts1746972725641201602 0
+63/mnt/xDrive/UserFiles/Karasu/Github/Udemy/nodeK8SReact/maps/src1746972397919738701 1
 101/mnt/xDrive/UserFiles/Karasu/Github/Udemy/nodeK8SReact/maps/node_modules/@faker-js/faker/CHANGELOG.md1746889573294631419 0
 114/mnt/xDrive/UserFiles/Karasu/Github/Udemy/nodeK8SReact/maps/node_modules/@faker-js/faker/dist/types/locale/pl.d.ts1746889573540631531 0
 114/mnt/xDrive/UserFiles/Karasu/Github/Udemy/nodeK8SReact/maps/node_modules/@faker-js/faker/dist/types/locale/he.d.ts1746889573418631475 0
@@ -554,7 +554,7 @@
 122/mnt/xDrive/UserFiles/Karasu/Github/Udemy/nodeK8SReact/maps/node_modules/@faker-js/faker/dist/cjs/locales/fr/word/index.js1746889573191585054 0
 126/mnt/xDrive/UserFiles/Karasu/Github/Udemy/nodeK8SReact/maps/node_modules/@faker-js/faker/dist/cjs/locales/fr/word/adjective.js1746889573094313426 0
 122/mnt/xDrive/UserFiles/Karasu/Github/Udemy/nodeK8SReact/maps/node_modules/@faker-js/faker/dist/cjs/locales/en_GB/cell_phone1746889573179349636 1
-85/mnt/xDrive/UserFiles/Karasu/Github/Udemy/nodeK8SReact/maps/dist/maps.34df32e0.js.map1746889579924037364 0
+85/mnt/xDrive/UserFiles/Karasu/Github/Udemy/nodeK8SReact/maps/dist/maps.34df32e0.js.map1746972725814095982 0
 140/mnt/xDrive/UserFiles/Karasu/Github/Udemy/nodeK8SReact/maps/node_modules/@faker-js/faker/dist/cjs/locales/fr/commerce/product_description.js1746889573248631398 0
 133/mnt/xDrive/UserFiles/Karasu/Github/Udemy/nodeK8SReact/maps/node_modules/@faker-js/faker/dist/cjs/locales/sv/commerce/product_name.js1746889573250631399 0
 120/mnt/xDrive/UserFiles/Karasu/Github/Udemy/nodeK8SReact/maps/node_modules/@faker-js/faker/dist/esm/locale/en_AU_ocker.mjs1746889573304631424 0
@@ -801,7 +801,7 @@
 131/mnt/xDrive/UserFiles/Karasu/Github/Udemy/nodeK8SReact/maps/node_modules/@faker-js/faker/dist/cjs/locales/nl/address/city_prefix.js1746889573110748507 0
 110/mnt/xDrive/UserFiles/Karasu/Github/Udemy/nodeK8SReact/maps/node_modules/@faker-js/faker/dist/types/locales/pl1746889573476631502 1
 124/mnt/xDrive/UserFiles/Karasu/Github/Udemy/nodeK8SReact/maps/node_modules/@faker-js/faker/dist/cjs/definitions/definitions.js1746889573124631341 0
-71/mnt/xDrive/UserFiles/Karasu/Github/Udemy/nodeK8SReact/maps/src/User.ts1746889445962120868 0
+71/mnt/xDrive/UserFiles/Karasu/Github/Udemy/nodeK8SReact/maps/src/User.ts1746892085895490293 0
 133/mnt/xDrive/UserFiles/Karasu/Github/Udemy/nodeK8SReact/maps/node_modules/@faker-js/faker/dist/cjs/locales/en_AU_ocker/address/city.js1746889573111631335 0
 131/mnt/xDrive/UserFiles/Karasu/Github/Udemy/nodeK8SReact/maps/node_modules/@faker-js/faker/dist/cjs/locales/ko/address/city_suffix.js1746889573110748507 0
 114/mnt/xDrive/UserFiles/Karasu/Github/Udemy/nodeK8SReact/maps/node_modules/@faker-js/faker/dist/cjs/locales/fr/music1746889573191585054 1
@@ -969,7 +969,7 @@
 135/mnt/xDrive/UserFiles/Karasu/Github/Udemy/nodeK8SReact/maps/node_modules/@faker-js/faker/dist/types/locales/zh_CN/address/postcode.d.ts1746889573547631535 0
 140/mnt/xDrive/UserFiles/Karasu/Github/Udemy/nodeK8SReact/maps/node_modules/@faker-js/faker/dist/cjs/locales/hu/commerce/product_description.js1746889573248631398 0
 130/mnt/xDrive/UserFiles/Karasu/Github/Udemy/nodeK8SReact/maps/node_modules/@faker-js/faker/dist/cjs/locales/ja/address/state_abbr.js1746889573256631402 0
-81/mnt/xDrive/UserFiles/Karasu/Github/Udemy/nodeK8SReact/maps/dist/maps.34df32e0.js1746889579922634443 0
+81/mnt/xDrive/UserFiles/Karasu/Github/Udemy/nodeK8SReact/maps/dist/maps.34df32e0.js1746972725803794302 0
 129/mnt/xDrive/UserFiles/Karasu/Github/Udemy/nodeK8SReact/maps/node_modules/@faker-js/faker/dist/cjs/locales/en_NG/company/suffix.js1746889573273631410 0
 137/mnt/xDrive/UserFiles/Karasu/Github/Udemy/nodeK8SReact/maps/node_modules/@faker-js/faker/dist/cjs/locales/en_NG/internet/domain_suffix.js1746889573132631345 0
 128/mnt/xDrive/UserFiles/Karasu/Github/Udemy/nodeK8SReact/maps/node_modules/@faker-js/faker/dist/types/locales/hu/date/weekday.d.ts1746889573619631567 0
@@ -1775,7 +1775,7 @@
 121/mnt/xDrive/UserFiles/Karasu/Github/Udemy/nodeK8SReact/maps/node_modules/@faker-js/faker/dist/cjs/locales/hu/word/verb.js1746889573289631417 0
 121/mnt/xDrive/UserFiles/Karasu/Github/Udemy/nodeK8SReact/maps/node_modules/@faker-js/faker/dist/cjs/locales/ar/phone_number1746889573173372287 1
 129/mnt/xDrive/UserFiles/Karasu/Github/Udemy/nodeK8SReact/maps/node_modules/@faker-js/faker/dist/cjs/locales/en/address/direction.js1746889573128631343 0
-102/mnt/xDrive/UserFiles/Karasu/Github/Udemy/nodeK8SReact/maps/node_modules/@faker-js/faker/tsconfig.json1746889573294631419 0
+102/mnt/xDrive/UserFiles/Karasu/Github/Udemy/nodeK8SReact/maps/node_modules/@faker-js/faker/tsconfig.json1746891548552436063 0
 138/mnt/xDrive/UserFiles/Karasu/Github/Udemy/nodeK8SReact/maps/node_modules/@faker-js/faker/dist/types/locales/lv/internet/domain_suffix.d.ts1746889573372631455 0
 140/mnt/xDrive/UserFiles/Karasu/Github/Udemy/nodeK8SReact/maps/node_modules/@faker-js/faker/dist/cjs/locales/sv/address/common_street_suffix.js1746889573116631338 0
 124/mnt/xDrive/UserFiles/Karasu/Github/Udemy/nodeK8SReact/maps/node_modules/@faker-js/faker/dist/cjs/locales/fa/date/weekday.js1746889573290631417 0
@@ -4410,6 +4410,7 @@
 136/mnt/xDrive/UserFiles/Karasu/Github/Udemy/nodeK8SReact/maps/node_modules/@faker-js/faker/dist/types/locales/tr/name/male_first_name.d.ts1746889573514631519 0
 129/mnt/xDrive/UserFiles/Karasu/Github/Udemy/nodeK8SReact/maps/node_modules/@faker-js/faker/dist/cjs/locales/mk/address/city_name.js1746889573108127348 0
 126/mnt/xDrive/UserFiles/Karasu/Github/Udemy/nodeK8SReact/maps/node_modules/@faker-js/faker/dist/types/locales/tr/name/index.d.ts1746889573486631507 0
+74/mnt/xDrive/UserFiles/Karasu/Github/Udemy/nodeK8SReact/maps/src/Company.ts1746972686958710171 0
 131/mnt/xDrive/UserFiles/Karasu/Github/Udemy/nodeK8SReact/maps/node_modules/@faker-js/faker/dist/types/locales/tr/name/first_name.d.ts1746889573393631464 0
 125/mnt/xDrive/UserFiles/Karasu/Github/Udemy/nodeK8SReact/maps/node_modules/@faker-js/faker/dist/types/locales/tr/name/name.d.ts1746889573535631529 0
 130/mnt/xDrive/UserFiles/Karasu/Github/Udemy/nodeK8SReact/maps/node_modules/@faker-js/faker/dist/types/locales/tr/address/street.d.ts1746889573593631556 0
