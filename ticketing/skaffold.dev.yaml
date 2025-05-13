@@ -1,0 +1,28 @@
+apiVersion: skaffold/v4beta3
+kind: Config
+
+manifests:
+  rawYaml:
+    - ./infra/k8s/*
+    
+build:
+  local:
+    push: true
+    useDockerCLI: true
+  tagPolicy:
+    sha256: {}
+  artifacts:
+    - image: 192.100.40.5:5001/auth
+      context: auth
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: 'src/**/*.ts'
+            dest: .
+portForward:
+  - resourceType: service
+    resourceName: auth-srv
+    port: 3000
+    localPort: 3000
+    namespace: development

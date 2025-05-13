@@ -1,0 +1,10 @@
+apiVersion: skaffold/v4beta3
+kind: Config
+
+manifests:
+  rawYaml:
+    - ./infra/k3s/*
+    
+build:
+  local:
+    push: false
