@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: auth-depl
+  namespace: development
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: auth
+  template:
+    metadata:
+      labels:
+        app: auth
+      spec:
+        containers:
+          - name: auth
+            image: 192.100.40.5:5000/auth
+            imagePullPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: auth-srv
+  namespace: development
+spec:
+  selector:
+    app: auth
+  ports:
+    - name: auth
+      protocol: TCP
+      port: 3000
+      targetPort: 3000
