@@ -4,22 +4,28 @@ kind: Config
 manifests:
   rawYaml:
     - ./infra/k8s/*
-    
+
 build:
   local:
-    push: true
+    push: true             # Push images to your registry
     useDockerCLI: true
+    useBuildkit: true      # Enable BuildKit (which enables buildx)
+  platforms: ["linux/amd64", "linux/arm64"]
   tagPolicy:
     sha256: {}
+
   artifacts:
     - image: 192.100.40.5:5001/auth
       context: auth
       docker:
         dockerfile: Dockerfile
+        buildArgs:
+          PLATFORM: "linux/amd64"
       sync:
         manual:
           - src: 'src/**/*.ts'
             dest: .
+
 portForward:
   - resourceType: service
     resourceName: auth-srv
