@@ -1,34 +1,34 @@
-apiVersion: skaffold/v4beta3
-kind: Config
+apiVersion: skaffold/v4beta3          # Skaffold API version
+kind: Config                          # Configuration type
 
-manifests:
+manifests:                            # Path to Kubernetes manifests
   rawYaml:
-    - ./infra/k8s/*
+    - ./infra/k8s/*                   # Kubernetes YAML files
 
 build:
   local:
-    push: true             # Push images to your registry
-    useDockerCLI: true
-    useBuildkit: true      # Enable BuildKit (which enables buildx)
-  platforms: ["linux/amd64", "linux/arm64"]
+    push: true                        # Push images to registry
+    useDockerCLI: true                # Use Docker CLI for builds
+    useBuildkit: true                 # Enable BuildKit (for optimizations)
+  platforms: ["linux/amd64", "linux/arm64"]  # Build for both AMD64 and ARM64
   tagPolicy:
-    sha256: {}
+    sha256: {}                        # Tag images by SHA256 hash
 
   artifacts:
-    - image: 192.100.40.5:5001/auth
-      context: auth
+    - image: 192.100.40.5:5001/auth   # Image name and registry
+      context: auth                   # Build context directory
       docker:
-        dockerfile: Dockerfile
+        dockerfile: Dockerfile        # Dockerfile location
         buildArgs:
-          PLATFORM: "linux/amd64"
-      sync:
+          PLATFORM: "linux/amd64"     # Build argument for platform
+      sync:                           # File sync for development
         manual:
-          - src: 'src/**/*.ts'
-            dest: .
-
-portForward:
-  - resourceType: service
-    resourceName: auth-srv
-    port: 3000
-    localPort: 3000
-    namespace: development
+          - src: 'src/**/*.ts'        # Files to sync
+            dest: .                   # Sync destination
+  
+portForward:                          # Local port forwarding
+  - resourceType: service             # Forward a Kubernetes service
+    resourceName: auth-srv            # Service name
+    port: 3000                        # Service port to forward
+    localPort: 3000                   # Local port to bind
+    namespace: development            # Kubernetes namespace

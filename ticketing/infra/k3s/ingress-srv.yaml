@@ -1,26 +1,26 @@
-apiVersion: networking.k8s.io/v1
-kind: Ingress
+apiVersion: networking.k8s.io/v1            # API version for Ingress
+kind: Ingress                               # Defines an Ingress resource
 metadata:
-  name: ingress-srv
-  namespace: production
+  name: ingress-srv                         # Ingress name
+  namespace: production                     # Namespace for ingress
   annotations:
-    nginx.ingress.kubernetes.io/use-regex: "true"
-    nginx.ingress.kubernetes.io/ssl-redirect: "true"
-    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/use-regex: "true"             # Enable regex in paths
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"          # Redirect HTTP to HTTPS
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"    # Force HTTPS even without HSTS
 spec:
-  ingressClassName: nginx   # Ingress-NGINX controller
+  ingressClassName: nginx                   # nginx ingress controller
   tls:
   - hosts:
-    - ticketing.prod      # You can use a local hostname (edit /etc/hosts later)
-    secretName: prod-tls-secret
+    - ticketing.prod                        # Hostname to secure with TLS
+    secretName: prod-tls-secret             # TLS secret for HTTPS
   rules:
-  - host: ticketing.prod
+  - host: ticketing.prod                    # Hostname rule applies to
     http:
-        paths:
-          - path: /api/users/?(.*)
-            pathType: ImplementationSpecific
-            backend:
-              service:
-                name: auth-srv
-                port:
-                  number: 3000
+      paths:
+        - path: /api/users/?(.*)            # Match path with optional suffix using regex
+          pathType: ImplementationSpecific  # Path interpretation by ingress controller
+          backend:
+            service:
+              name: auth-srv                # Route traffic to this service
+              port:
+                number: 3000                # Service port to target

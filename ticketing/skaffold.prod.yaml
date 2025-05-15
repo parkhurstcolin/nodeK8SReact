@@ -1,10 +1,10 @@
-apiVersion: skaffold/v4beta3
-kind: Config
+apiVersion: skaffold/v4beta3    # Skaffold API version
+kind: Config                    # Configuration type
 
-manifests:
+manifests:                      # Path to Kubernetes manifests
   rawYaml:
-    - ./infra/k3s/*
+    - ./infra/k3s/*             # Kubernetes YAML files
     
 build:
   local:
-    push: false
+    push: false                 # Don't push images to the registry

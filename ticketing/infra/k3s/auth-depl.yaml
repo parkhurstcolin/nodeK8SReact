@@ -1,43 +1,43 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: apps/v1                      # API version for Deployment
+kind: Deployment                         # Defines a Deployment
 metadata:
-  name: auth-depl
-  namespace: production
-spec:
-  replicas: 1
+  name: auth-depl                        # Deployment name
+  namespace: production                  # Namespace for deployment
+spec: 
+  replicas: 1                            # Number of pod replicas
   selector:
     matchLabels:
-      app: auth
+      app: auth                          # Match pods with label app: auth
   template:
     metadata:
       labels:
-        app: auth
+        app: auth                        # Label for the pod
     spec:
       containers:
-        - name: auth
-          image: 192.100.40.5:5000/auth
-          imagePullPolicy: Always
+        - name: auth                     # Container name
+          image: 192.100.40.5:5000/auth  # Image to use (prod-registry)
+          imagePullPolicy: Always        # Always pull latest image
       affinity:
         nodeAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
             nodeSelectorTerms:
             - matchExpressions:
-              - key: kubernetes.io/arch
+              - key: kubernetes.io/arch  # Match node architecture
                 operator: In
                 values:
-                  - amd64
-#                  - arm64
+                  - amd64                # Only schedule on amd64 nodes
+#                  - arm64                # (Optional) Allow arm64 nodes if uncommented
 ---
-apiVersion: v1
-kind: Service
+apiVersion: v1                           # API version for Service
+kind: Service                            # Defines a Service
 metadata:
-  name: auth-srv
-  namespace: production
+  name: auth-srv                         # Service name
+  namespace: production                  # Namespace for service
 spec:
   selector:
-    app: auth
+    app: auth                            # Target pods with label app=auth
   ports:
-    - name: auth
-      protocol: TCP
-      port: 3000
-      targetPort: 3000
+    - name: auth                         # Port name
+      protocol: TCP                      # Protocol to use
+      port: 3000                         # Service port
+      targetPort: 3000                   # Pod container port
