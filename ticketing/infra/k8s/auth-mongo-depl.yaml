@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+ name: auth-mongo-depl
+ namespace: development
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: auth-mongo
+  template:
+    metadata:
+      labels:
+        app: auth-mongo
+    spec:
+      containers:
+        - name: auth-mongo
+          image: mongo
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: kubernetes.io/arch  # Match node architecture
+                operator: In
+                values:
+                  - amd64                # Only schedule on amd64 nodes
+#                  - arm64                # (Optional) Allow arm64 nodes if uncommented
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: auth-mongo-srv
+  namespace: development
+spec:
+  selector:
+    app: auth-mongo
+  ports:
+    - name: db
+      protocol: TCP
+      port: 27017
+      targetPort: 27017
