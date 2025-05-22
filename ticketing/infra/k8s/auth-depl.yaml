@@ -16,6 +16,12 @@ spec:
       containers:
         - name: auth                     # Container name
           image: 192.100.40.5:5001/auth  # Image to use (dev-registry)
+          env: 
+            - name: JWT_KEY
+              valueFrom: 
+                secretKeyRef:
+                  name: jwt-secret
+                  key: JWT_KEY
           imagePullPolicy: Always        # Always pull latest image
       affinity:
         nodeAffinity:
