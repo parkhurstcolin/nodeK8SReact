@@ -1,0 +1,49 @@
+apiVersion: apps/v1                      # API version for Deployment
+kind: Deployment                         # Defines a Deployment
+metadata:
+  name: client-depl                        # Deployment name
+  namespace: development                 # Namespace for deployment
+spec:
+  replicas: 1                            # Number of pod replicas
+  selector:
+    matchLabels:
+      app: client                          # Match pods with label app: client
+  template:
+    metadata:
+      labels:
+        app: client                        # Label for the pod
+    spec:
+      containers:
+        - name: client                     # Container name
+          image: 192.100.40.5:5001/client  # Image to use (dev-registry)
+          env: 
+            - name: JWT_KEY
+              valueFrom: 
+                secretKeyRef:
+                  name: jwt-secret
+                  key: JWT_KEY
+          imagePullPolicy: Always        # Always pull latest image
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: kubernetes.io/arch  # Match node architecture
+                operator: In
+                values:
+                  - amd64                # Only schedule on amd64 nodes
+#                  - arm64                # (Optional) Allow arm64 nodes if uncommented
+---
+apiVersion: v1                           # API version for Service
+kind: Service                            # Defines a Service
+metadata:
+  name: client-srv                         # Service name
+  namespace: development                 # Namespace for service
+spec:
+  selector:
+    app: client                            # Target pods with label app=client
+  ports:
+    - name: client                         # Port name
+      protocol: TCP                      # Protocol to use
+      port: 3000                         # Service port
+      targetPort: 3000                   # Pod container port
