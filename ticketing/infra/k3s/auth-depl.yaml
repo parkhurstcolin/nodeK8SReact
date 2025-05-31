@@ -39,5 +39,5 @@ spec:
   ports:
     - name: auth                         # Port name
       protocol: TCP                      # Protocol to use
-      port: 3000                         # Service port
-      targetPort: 3000                   # Pod container port
+      port: 4000                         # Service port
+      targetPort: 4000                   # Pod container port

@@ -25,15 +25,29 @@ build:
         manual:
           - src: 'src/**/*.ts'        # Files to sync
             dest: .                   # Sync destination
-  
+    - image: 192.100.40.5:5001/client   # Image name and registry
+      context: client                   # Build context directory
+      docker:
+        dockerfile: Dockerfile        # Dockerfile location
+        buildArgs:
+          PLATFORM: "linux/amd64"     # Build argument for platform
+      sync:                           # File sync for development
+        manual:
+          - src: 'src/**/*.ts'        # Files to sync
+            dest: .                   # Sync destination
 portForward:                          # Local port forwarding
   - resourceType: service             # Forward a Kubernetes service
     resourceName: auth-srv            # Service name
-    port: 3000                        # Service port to forward
-    localPort: 3000                   # Local port to bind
+    port: 4000                        # Service port to forward
+    localPort: 4000                   # Local port to bind
     namespace: development            # Kubernetes namespace
   - resourceType: service             # MongoDB service port forwarding
     resourceName: auth-mongo-srv      # MongoDB service name from your K8s service
     port: 27017                       # MongoDB port
     localPort: 27017                  # Local port to access MongoDB
+    namespace: development            # Kubernetes namespace
+  - resourceType: service             # Forward a Kubernetes service
+    resourceName: client-srv            # Service name
+    port: 3000                        # Service port to forward
+    localPort: 3000                   # Local port to bind
     namespace: development            # Kubernetes namespace
