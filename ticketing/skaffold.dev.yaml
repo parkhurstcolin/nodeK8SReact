@@ -38,8 +38,8 @@ build:
 portForward:                          # Local port forwarding
   - resourceType: service             # Forward a Kubernetes service
     resourceName: auth-srv            # Service name
-    port: 4000                        # Service port to forward
-    localPort: 4000                   # Local port to bind
+    port: 3000                        # Service port to forward
+    localPort: 3000                   # Local port to bind
     namespace: development            # Kubernetes namespace
   - resourceType: service             # MongoDB service port forwarding
     resourceName: auth-mongo-srv      # MongoDB service name from your K8s service

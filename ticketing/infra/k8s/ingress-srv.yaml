@@ -21,7 +21,7 @@ spec:
             service:
               name: auth-srv                # Route traffic to this service
               port:
-                number: 4000                # Service port to target
+                number: 3000                # Service port to target
         - path: /?(.*)            # Match path with optional suffix using regex
           pathType: ImplementationSpecific  # Path interpretation by ingress controller
           backend:
