@@ -7,10 +7,6 @@ metadata:
     nginx.ingress.kubernetes.io/use-regex: "true"             # Enable regex in paths
 spec:
   ingressClassName: nginx                   # nginx ingress controller
-  tls:
-  - hosts:
-    - ticketing.dev
-    secretName: dev-tls-secret
   rules:
   - host: ticketing.dev                     # Hostname rule applies to
     http:
