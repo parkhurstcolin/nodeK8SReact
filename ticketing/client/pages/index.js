@@ -10,9 +10,15 @@ const LandingPage = ({ currentUser }) => {
 };
 
 LandingPage.getInitialProps = async () => {
-  const response = await axios.get(
-    'http://ingress-nginx-controller.ingress-nginx.svc.cluster.local/api/users/currentuser'
-  );
+  if (typeof window === 'undefined') {
+    // we are on the server!
+    // requests should be made to http://ingress-nginx-controller.ingress-nginx.svc.cluster.local/api/users/currentuser
+
+    const response = await axios.get(
+      'http://ingress-nginx-controller.ingress-nginx.svc.cluster.local/api/users/currentuser'
+    );
+  } else {
+  }
 
   return response.data;
 };
