@@ -10,6 +10,11 @@ const AppComponent = ({ Component, pageProps }) => {
   );
 };
 
-AppComponent.getInitialProp = () => {};
+AppComponent.getInitialProp = async (appContext) => {
+  const client = buildClient(appContext.ctx);
+  const { data } = await client.get('/api/users/currentuser');
+
+  return data;
+};
 
 export default AppComponent;
