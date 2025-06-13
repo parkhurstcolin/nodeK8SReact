@@ -18,7 +18,7 @@ spec:
           image: 192.100.40.5:5001/tickets  # Image to use (dev-registry)
           env: 
             - name: MONGO_URI
-              value: 'mongodb://tickets-mongo-srv:27017/auth'
+              value: 'mongodb://tickets-mongo-srv:27017/tickets'
             - name: JWT_KEY
               valueFrom: 
                 secretKeyRef:
