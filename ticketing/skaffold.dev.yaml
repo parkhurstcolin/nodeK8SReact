@@ -56,3 +56,5 @@ portForward:                          # Local port forwarding
     port: 27017                       # MongoDB port
     localPort: 27017                  # Local port to access MongoDB
     namespace: development            # Kubernetes namespace
+
+# skaffold dev -f skaffold.dev.yaml
