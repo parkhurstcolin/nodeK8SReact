@@ -25,6 +25,13 @@ spec:
               name: tickets-srv
               port:
                 number: 3000
+        - path: /api/order/?(.*)
+          pathType: ImplementationSpecific  # Path interpretation by ingress controller
+          backend:
+            service:
+              name: order-srv
+              port:
+                number: 3000
         - path: /?(.*)            # Match path with optional suffix using regex
           pathType: ImplementationSpecific  # Path interpretation by ingress controller
           backend:
