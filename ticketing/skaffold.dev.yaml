@@ -45,6 +45,16 @@ build:
         manual:
           - src: 'src/**/*.ts'        # Files to sync
             dest: .                   # Sync destination
+    - image: 192.100.40.5:5001/orders   # Image name and registry
+      context: orders                   # Build context directory
+      docker:
+        dockerfile: Dockerfile        # Dockerfile location
+        buildArgs:
+          PLATFORM: "linux/amd64"     # Build argument for platform
+      sync:                           # File sync for development
+        manual:
+          - src: 'src/**/*.ts'        # Files to sync
+            dest: .                   # Sync destination
 portForward:                          # Local port forwarding
   - resourceType: service             # Forward the ingress controller
     resourceName: ingress-nginx-controller
