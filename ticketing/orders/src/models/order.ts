@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 import { OrderStatus } from '@xycorp/common';
-
+import { TicketDoc } from './ticket';
 interface OrderAttrs {
   userId: string;
   status: OrderStatus;
@@ -10,7 +10,7 @@ interface OrderAttrs {
 
 interface OrderDoc extends mongoose.Document {
   userId: string;
-  status: OrderStat;
+  status: OrderStatus;
   expiresAt: Date;
   ticket: TicketDoc;
 }
