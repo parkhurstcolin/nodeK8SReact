@@ -1,15 +1,16 @@
 import mongoose from 'mongoose';
 import express, { Request, Response } from 'express';
 import {
-  BadRequestError,
-  NotFoundError,
   requireAuth,
   validateRequest,
+  NotFoundError,
+  BadRequestError,
 } from '@xycorp/common';
 import { body } from 'express-validator';
 import { Ticket } from '../models/ticket';
-import { Order } from '../models/order';
-import { OrderStatus } from '@xycorp/common';
+import { Order, OrderStatus } from '../models/order';
+
+const EXPIRATION_WINDOW_SECONDS = 15 * 60;
 
 const router = express.Router();
 
@@ -40,11 +41,20 @@ router.post(
     }
 
     // Calculate an expiration date for this order
+    const expiration = new Date();
+    expiration.setSeconds(expiration.getSeconds() + EXPIRATION_WINDOW_SECONDS);
 
     // Build the order and save it to the database
+    const order = Order.build({
+      userId: req.currentUser!.id,
+      status: OrderStatus.Created,
+      expiresAt: expiration,
+      ticket,
+    });
+    await order.save();
 
     // Publish an event saying that an order was created
-    res.send({});
+    res.status(201).send(order);
   }
 );
 
