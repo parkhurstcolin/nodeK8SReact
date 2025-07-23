@@ -18,14 +18,14 @@ spec:
               name: auth-srv                # Route traffic to this service
               port:
                 number: 3000                # Service port to target
-        - path: /api/ticket/?(.*)
+        - path: /api/tickets/?(.*)
           pathType: ImplementationSpecific  # Path interpretation by ingress controller
           backend:
             service:
               name: tickets-srv
               port:
                 number: 3000
-        - path: /api/order/?(.*)
+        - path: /api/orders/?(.*)
           pathType: ImplementationSpecific  # Path interpretation by ingress controller
           backend:
             service:
