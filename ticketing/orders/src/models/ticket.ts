@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import { Order, OrderStatus } from './order';
 
 interface TicketAttrs {
-  ticket: string;
+  title: string;
   price: number;
 }
 
@@ -18,7 +18,7 @@ interface TicketModel extends mongoose.Model<TicketDoc> {
 
 const ticketSchema = new mongoose.Schema(
   {
-    ticket: {
+    title: {
       type: String,
       required: true,
     },
