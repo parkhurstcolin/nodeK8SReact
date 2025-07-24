@@ -66,6 +66,7 @@ router.post(
         price: ticket.price,
       },
     });
+
     res.status(201).send(order);
   }
 );

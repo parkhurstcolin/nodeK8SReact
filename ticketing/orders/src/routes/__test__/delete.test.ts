@@ -2,6 +2,7 @@ import request from 'supertest';
 import { app } from '../../app';
 import { Order, OrderStatus } from '../../models/order';
 import { Ticket } from '../../models/ticket';
+import { natsWrapper } from '../../nats-wrapper';
 
 it('marks an order as cancelled', async () => {
   // Create a ticket with Ticket Model
