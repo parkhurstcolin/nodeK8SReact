@@ -1,11 +1,17 @@
 import express, { Request, Response} from 'express';
 import { body } from 'express-validator';
-import { validateRequest, NotFoundError, requireAuth, NotAuthorizedError} from '@xycorp/common'
+import {
+  validateRequest,
+  NotFoundError,
+  requireAuth,
+  NotAuthorizedError,
+  BadRequestError,
+} from '@xycorp/common';
 import { Ticket } from '../models/ticket';
 import { TicketUpdatedPublisher } from '../events/publishers/ticket-updated-publisher';
 import { natsWrapper } from '../nats-wrapper';
 
-const router = express.Router()
+const router = express.Router();
 
 router.put(
   '/api/tickets/:id',
@@ -22,6 +28,10 @@ router.put(
 
     if (!ticket) {
       throw new NotFoundError();
+    }
+
+    if (ticket.orderId) {
+      throw new BadRequestError('Cannot edit a reserved ticket');
     }
 
     if (ticket.userId !== req.currentUser!.id) {
